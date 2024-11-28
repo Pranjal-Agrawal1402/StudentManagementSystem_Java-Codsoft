@@ -7,14 +7,14 @@ class Student {
     private int RollNumber;
     private String MobileNumber;
     private String Grade;
-    private String Course; // Added Course field
+    private String Course; 
 
     public Student(String name, int rollNumber, String mobileNumber, String grade, String course) {
         this.Name = name;
         this.RollNumber = rollNumber;
         this.MobileNumber = mobileNumber;
         this.Grade = grade;
-        this.Course = course; // Initialize Course
+        this.Course = course; 
     }
 
     public int getRollNumber() {
@@ -34,7 +34,7 @@ class Student {
     }
 
     public String getCourse() {
-        return Course; // Getter for Course
+        return Course; 
     }
 
     public void setName(String name) {
@@ -53,13 +53,13 @@ class Student {
         this.Grade = grade;
     }
 
-    public void setCourse(String course) { // Setter for Course
+    public void setCourse(String course) { 
         this.Course = course;
     }
 
     @Override
     public String toString() {
-        return Name + "," + RollNumber + "," + MobileNumber + "," + Grade + "," + Course; // Include course in the string
+        return Name + "," + RollNumber + "," + MobileNumber + "," + Grade + "," + Course;
     }
 }
 
@@ -101,7 +101,7 @@ class StudentManagementSystem {
                 student.setRollNumber(newRollNumber);
                 student.setMobileNumber(newMobile);
                 student.setGrade(newGrade);
-                student.setCourse(newCourse); // Set new course
+                student.setCourse(newCourse); 
             } else {
                 System.out.println("Error: The Roll Number already exists. Please enter a unique Roll Number.");
             }
@@ -110,14 +110,14 @@ class StudentManagementSystem {
         }
     }
 
-    // Check if Roll Number is unique
+
     public boolean isRollNumberUnique(int rollNumber) {
         for (Student student : students) {
             if (student.getRollNumber() == rollNumber) {
-                return false; // Roll Number already exists
+                return false; 
             }
         }
-        return true; // Roll Number is unique
+        return true; 
     }
 
     public List<Student> getAllStudents() {
@@ -142,7 +142,7 @@ public class Student_management_system {
 
             switch (choice) {
                 case 1:
-                    scanner.nextLine(); // Clear the buffer
+                    scanner.nextLine(); 
                     System.out.print("Enter Student Name (mandatory): ");
                     String Name = scanner.nextLine();
                     if (Name.isEmpty()) {
@@ -151,7 +151,7 @@ public class Student_management_system {
                     }
                     System.out.print("Enter Roll Number (mandatory): ");
                     int RollNumber = scanner.nextInt();
-                    scanner.nextLine(); // Clear the buffer
+                    scanner.nextLine(); 
                     if (RollNumber <= 0) {
                         System.out.println("Roll Number is mandatory and must be positive.");
                         break;
@@ -160,7 +160,7 @@ public class Student_management_system {
                     String MobileNumber = scanner.nextLine();
                     System.out.print("Enter Grade: ");
                     String Grade = scanner.nextLine();
-                    System.out.print("Enter Course: "); // Ask for course
+                    System.out.print("Enter Course: "); 
                     String Course = scanner.nextLine();
 
                     Student newStudent = new Student(Name, RollNumber, MobileNumber, Grade, Course);
@@ -189,12 +189,12 @@ public class Student_management_system {
                         System.out.println("No. | Name               | Roll No | Mobile Number | Grade | Course");
                         System.out.println("------------------------------------------------------");
                         System.out.printf("%-4d| %-18s| %-8d| %-15s| %-5s| %-10s%n", 
-                                          1, // Display as 1 since we only have one student
+                                          1, 
                         searchedStudent.getName(), 
                         searchedStudent.getRollNumber(), 
                         searchedStudent.getMobileNumber(), 
                         searchedStudent.getGrade(),
-                                          searchedStudent.getCourse()); // Display course
+                                          searchedStudent.getCourse()); 
                         System.out.println("------------------------------------------------------");
                     } else {
                         System.out.println("Student not found.");
@@ -219,7 +219,7 @@ public class Student_management_system {
                             student.getRollNumber(), 
                             student.getMobileNumber(), 
                             student.getGrade(),
-                            student.getCourse()); // Display course
+                            student.getCourse()); 
                         }
                         System.out.println("------------------------------------------------------");
                     }
@@ -228,7 +228,7 @@ public class Student_management_system {
                 case 5:
                     System.out.print("Enter Roll Number of student to edit: ");
                     int rollToEdit = scanner.nextInt();
-                    scanner.nextLine(); // Clear the buffer
+                    scanner.nextLine(); 
                     Student studentToEdit = sms.searchStudent(rollToEdit);
                     if (studentToEdit != null) {
                         System.out.print("Enter New Name (leave empty to keep existing): ");
@@ -237,7 +237,7 @@ public class Student_management_system {
                             studentToEdit.setName(newName);
                         }
 
-                        // Allow editing of the Roll Number
+                        
                         System.out.print("Enter New Roll Number (leave empty to keep existing): ");
                         String newRollInput = scanner.nextLine();
                         if (!newRollInput.isEmpty()) {
@@ -255,7 +255,7 @@ public class Student_management_system {
                         if (!newGrade.isEmpty()) {
                         studentToEdit.setGrade(newGrade);
                         }
-                        // Edit course
+                        
                         System.out.print("Enter New Course (leave empty to keep existing): ");
                         String newCourse = scanner.nextLine();
                         if (!newCourse.isEmpty()) {
